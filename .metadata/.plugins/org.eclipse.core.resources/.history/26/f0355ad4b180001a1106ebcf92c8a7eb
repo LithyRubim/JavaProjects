@@ -1,0 +1,134 @@
+package rs.senac;
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+
+public class TesteFaleConosco {
+	
+	WebDriver driver;
+	
+	@Before
+	public void iniciar() {
+		// setando o caminho do gecko
+
+		System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
+		// instanciando o firefox
+		driver = new FirefoxDriver();
+		// informando qual arquivo que vai abrir
+		driver.get("https://senacrs.com.br/contato_faleconosco.asp");
+		// maximizando as telas
+		driver.manage().window().maximize();
+	}
+
+	@Test
+	public void test()throws InterruptedException {
+		WebElement txtNome = driver.findElement(By.id("nome"));
+		txtNome.sendKeys("Paulo");
+		//Thread.sleep(2000);
+		//txtNome.clear();
+		
+		WebElement txtNome2 = driver.findElement(By.id("nome"));
+		txtNome2.sendKeys("          ");
+		Thread.sleep(2000);
+		txtNome.clear();
+		
+		/*WebElement txtNome3 = driver.findElement(By.id("nome"));
+		txtNome3.sendKeys("&¨%$#$%¨&¨%$#");
+		
+		Thread.sleep(5000);
+		
+		WebElement datanasc = driver.findElement(By.id("datanasc"));
+		datanasc.sendKeys("09/10/1991");
+		
+		WebElement datanasc = driver.findElement(By.id("datanasc"));
+		datanasc.sendKeys("09/10/2050");
+		
+		WebElement datanasc = driver.findElement(By.id("datanasc"));
+		datanasc.sendKeys("dd/mm/aaaa");
+		
+		WebElement datanasc = driver.findElement(By.id("datanasc"));
+		datanasc.sendKeys("15042020");
+		
+		WebElement datanasc = driver.findElement(By.id("datanasc"));
+		datanasc.sendKeys("%%/$$/&&&&");
+
+		WebElement slcEstado = driver.findElement(By.id("estado"));
+		slcEstado.sendKeys(Keys.ENTER);	
+		
+		WebElement slcEstado = driver.findElement(By.id("estado"));
+		slcEstado.sendKeys(Keys.ARROW_DOWN);
+		slcEstado.sendKeys(Keys.ENTER);
+		
+		WebElement slcEstado = driver.findElement(By.id("estado"));
+		slcEstado.sendKeys(Keys.ARROW_UP);
+		slcEstado.sendKeys(Keys.ENTER);
+		
+		WebElement slcEstado = driver.findElement(By.id("estado"));
+		slcEstado.sendKeys("Selecione...");
+		
+		Select estado = new Select(driver.findElement(By.id("estado")));
+		estado.selectByVisibleText(" 1111111");
+		
+		WebElement slcCidade = driver.findElement(By.id("cidade"));
+		slcCidade.sendKeys("PORTO ALEGRE");
+
+		WebElement slcCidade = driver.findElement(By.id("cidade"));
+		slcCidade.sendKeys(Keys.ARROW_DOWN);
+		slcCidade.sendKeys(Keys.ARROW_DOWN);
+		slcCidade.sendKeys(Keys.ENTER);
+		
+		Thread.sleep(2000);*/
+		
+		
+		//Cria-se um objeto do tipo Select// 			
+		 Select dropdown = new Select(driver.findElement(By.id("cidade")));
+		//Seleciona-se por texto// 			
+		 dropdown.selectByVisibleText("PORTO ALEGRE");
+		
+		//WebElement txtBairro = driver.findElement(By.id("bairro"));
+		//txtBairro.sendKeys("Azenha");
+				  
+		 WebElement txtEmail = driver.findElement(By.id("email"));
+		txtEmail.sendKeys("    @    .   ");
+
+		WebElement txtConfemail = driver.findElement(By.id("confemail"));
+		txtConfemail.sendKeys("    @     .com");
+
+		WebElement txtddd = driver.findElement(By.id("ddd"));
+		txtddd.sendKeys("00");
+
+		WebElement txtTelefone = driver.findElement(By.id("telefone"));
+		txtTelefone.sendKeys("546456456569999999");
+
+		WebElement btnFeminino = driver.findElement(By.xpath("/html/body/div/div[9]/div[1]/div/div/div[2]/div/form/div[1]/div[2]/div[1]"));
+		btnFeminino.click();
+
+		WebElement txtMensagem = driver.findElement(By.id("mensagem"));
+		txtMensagem.sendKeys("sasasasasasasasasasa");
+
+		WebElement txtCpf = driver.findElement(By.id("cpf"));
+		txtCpf.sendKeys("54645645656");
+		
+		Thread.sleep(2000);
+					
+		WebElement btnValida= driver.findElement(By.xpath("/html/body/div[2]/div[3]/div[1]/div/div/span/div[5]"));
+		btnValida.click();
+					
+					
+		WebElement btnCadastra= driver.findElement(By.xpath("/html/body/div[1]/div[9]/div[1]/div/div/div[2]/div/form/input[7]"));
+		btnCadastra.click();
+
+					
+					
+	}
+
+}

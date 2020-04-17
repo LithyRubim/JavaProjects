@@ -1,0 +1,19 @@
+package senac.rs;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+
+public class TesteFale {
+	
+	WebDriver driver;
+	
+	//senacrs.com.br/contato_faleconosco.asp
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

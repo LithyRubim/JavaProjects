@@ -1,0 +1,32 @@
+package senac.rs;
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class TesteFale {
+	
+	WebDriver driver;
+	
+	@Before
+	
+	public void iniciar() {
+		System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
+		//instanciar o objeto
+		driver = new FirefoxDriver();
+		
+		driver.get("http://senacrs.com.br/contato_faleconosco.asp");
+		driver.manage().window().maximize();
+	}
+	
+	//
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

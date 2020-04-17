@@ -1,0 +1,90 @@
+package rs.sensc;
+
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class site_sistema {
+	
+	WebDriver driver;
+	
+	@Before
+		
+		public void iniciar() {
+			System.setProperty("webdriver.gecko.driver", "geckodriver.exe");
+			//instanciar o objeto
+			driver = new FirefoxDriver();
+			//chamar a página do facebook
+			driver.get("http://localhost/site_atividade/restrito.php");
+			driver.manage().window().maximize();
+			
+		
+		}
+
+	@Test
+	public void test()throws InterruptedException {
+		
+		WebElement btnCadastro= driver.findElement(By.xpath("//*[@id=\"admNoticias\"]/div/div[2]/button"));
+		btnCadastro.click();
+		
+		WebElement txtTitulo= driver.findElement(By.id("titulo"));
+		txtTitulo.sendKeys("Game");
+		
+		WebElement txtResumo= driver.findElement(By.name("resumo"));
+		txtResumo.sendKeys("Novos games");
+		
+		WebElement txtTexto= driver.findElement(By.id("texto"));
+		txtTexto.sendKeys("Hoje vamos falar de games");
+		
+		WebElement txtData= driver.findElement(By.id("data"));
+		txtData.sendKeys("2020-12-12");
+		
+		WebElement txtAutor= driver.findElement(By.id("autor"));
+		txtAutor.sendKeys("mauro");
+		
+		Thread.sleep(2000);
+		
+		WebElement btnCadastrar= driver.findElement(By.name("cadastrar"));
+		btnCadastrar.click();
+		
+		Thread.sleep(5000);
+		
+		
+	}
+	
+	@Test
+	//Segundo teste, editar a primeira reportagem
+	
+	public void test_2() throws InterruptedException {
+		//Editar a primeira reportagem
+		
+				WebElement btnEditar= driver.findElement(By.xpath("/html/body/div[2]/table/tbody/tr[1]/td[5]/a[1]/i"));
+				btnEditar.click();
+				
+				WebElement txtTituloE= driver.findElement(By.id("titulo"));
+				txtTituloE.clear();
+				
+				WebElement txtTituloN= driver.findElement(By.id("titulo"));
+				txtTituloN.sendKeys("Novo Corona vírus");
+				
+				Thread.sleep(2000);
+				
+				WebElement btnCadastrarE= driver.findElement(By.name("editar"));
+				btnCadastrarE.click();
+				
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+
+}
